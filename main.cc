@@ -26,7 +26,6 @@ public:
 
         // чтение заголовка изображения
         bmpFile.read(reinterpret_cast<char*>(&infoHeader), sizeof(infoHeader));
-
         if (infoHeader.biBitCount != 24 && infoHeader.biBitCount != 32) {
             throw std::runtime_error("Only 24 or 32 bit BMP files are supported.");
         }
@@ -34,8 +33,6 @@ public:
         // чтение данных изображения
         int width = infoHeader.biWidth;
         int height = infoHeader.biHeight;
-        // int rowSize = (width * (infoHeader.biBitCount / 8) + 3) & (~3); // выровненный размер строки
-
         bitmapData.resize(height, std::vector<bool>(width));
 
         // переход к пиксельным данным
@@ -53,7 +50,6 @@ public:
                     throw std::runtime_error("BMP file contains colors other than black or white.");
                 }
             }
-            // bmpFile.ignore(rowSize - width * 3); // пропуск паддинга
         }
     }
 
