@@ -75,7 +75,7 @@ public:
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        std::cerr << "Usage: drawBmp.exe <path_to_file.bmp>\n";
+        std::cerr << "Usage: drawBmp.exe <path_to_file.bmp>" << std::endl;
         return 1;
     }
 
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
         bmpReader.displayBMP();
         bmpReader.closeBMP();
     } catch (const std::exception& ex) {
-        std::cerr << "Error: " << ex.what() << '\n';
+        std::cerr << "Error: " << ex.what() << std::endl;
         return 1;
     }
 
